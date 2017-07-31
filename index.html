@@ -22,12 +22,23 @@
           $body.html('');
 
           var index = streams.home.length - 1;
-          while(index >= 0){
-            var tweet = streams.home[index];
-            var $tweet = $('<div></div>');
-            $tweet.text(index + ' @' + tweet.user + ': ' + tweet.message + ' at ' + tweet.created_at);
-            $tweet.appendTo($body);
-            index -= 1;
+
+          if (index > 31){
+            while(index >= streams.home.length - 30){
+              var tweet = streams.home[index];
+              var $tweet = $('<div></div>');
+              $tweet.text(index + ' @' + tweet.user + ': ' + tweet.message + ' at ' + tweet.created_at);
+              $tweet.appendTo($body);
+              index -= 1;
+            }
+          } else{
+            while(index >= 0){
+              var tweet = streams.home[index];
+              var $tweet = $('<div></div>');
+              $tweet.text(index + ' @' + tweet.user + ': ' + tweet.message + ' at ' + tweet.created_at);
+              $tweet.appendTo($body);
+              index -= 1;
+            }
           }
         })
       })
