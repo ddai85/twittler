@@ -3,25 +3,32 @@
   <head>
     <script src="jquery.js"></script>
     <script src="data_generator.js"></script>
+    <title>Twittler</title>
   </head>
   <body>
-    <script>
+    <header class="primary-header">
+      <section>
+        <h1 class="logo">The Twittler </h1>
+      </section>
+        <h3 class="tagline">See what the world is saying... </h3>
+    </header>
+    <section class="hero">
+      <script>
+        $(document).ready(function(){
+          var $body = $('.hero');
+          $body.html('');
 
-      $(document).ready(function(){
-        var $body = $('body');
-        $body.html('');
+          var index = streams.home.length - 1;
+          while(index >= 0){
+            var tweet = streams.home[index];
+            var $tweet = $('<div></div>');
+            $tweet.text('@' + tweet.user + ': ' + tweet.message + ' at ' + tweet.created_at);
+            $tweet.appendTo($body);
+            index -= 1;
+          }
+        });
+      </script>
+    </section>
 
-        var index = streams.home.length - 1;
-        while(index >= 0){
-          var tweet = streams.home[index];
-          var $tweet = $('<div></div>');
-          $tweet.text('@' + tweet.user + ': ' + tweet.message);
-          $tweet.appendTo($body);
-          index -= 1;
-        }
-
-      });
-
-    </script>
   </body>
 </html>
