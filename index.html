@@ -12,6 +12,28 @@
       </section>
         <h3 class="tagline">See what the world is saying... </h3>
     </header>
+
+    <section class="next_tweet">
+      <p>See next tweet (Click Me!)</p>
+      <script>
+      $(document).ready(function(){
+        $('.next_tweet').on('click', function(){
+          var $body = $('.hero');
+          $body.html('');
+
+          var index = streams.home.length - 1;
+          while(index >= 0){
+            var tweet = streams.home[index];
+            var $tweet = $('<div></div>');
+            $tweet.text(index + ' @' + tweet.user + ': ' + tweet.message + ' at ' + tweet.created_at);
+            $tweet.appendTo($body);
+            index -= 1;
+          }
+        })
+      })
+      </script>
+    </section>
+
     <section class="hero">
       <script>
         $(document).ready(function(){
@@ -22,13 +44,15 @@
           while(index >= 0){
             var tweet = streams.home[index];
             var $tweet = $('<div></div>');
-            $tweet.text('@' + tweet.user + ': ' + tweet.message + ' at ' + tweet.created_at);
+            $tweet.text(index + ' @' + tweet.user + ': ' + tweet.message + ' at ' + tweet.created_at);
             $tweet.appendTo($body);
             index -= 1;
           }
         });
       </script>
     </section>
+
+
 
   </body>
 </html>
