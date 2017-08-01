@@ -14,55 +14,52 @@
     </header>
 
     <section class="next_tweet">
-      <p>See next tweet (Click Me!)</p>
+      <p>Update Stream (Click Me!)</p>
+    </section>
+
+    <section class="hero">
+
       <script>
-      $(document).ready(function(){
-        $('.next_tweet').on('click', function(){
-          var $body = $('.hero');
-          $body.html('');
+        $(document).ready(function(){
+        
+          var $hero = $('.hero');
+          var tweetCount = 0;
+          $hero.html('');
+        
+          displayTweet = function(index){
+            var tweet = streams.home[index];
+            var $tweet = $('<div></div>');
+            var time = tweet.created_at.toLocaleTimeString();
+            $tweet.text(index + ' @' + tweet.user + ': ' + tweet.message + ' at ' + time);
+            $tweet.appendTo($hero);
+          }
 
           var index = streams.home.length - 1;
+          while(index >= 0){
+            displayTweet(index);
+            index -=1;
+            }
+        
 
+        $('.next_tweet').on('click', function(){
+          var index = streams.home.length - 1;
+          $('.hero').empty();
           if (index > 31){
             while(index >= streams.home.length - 30){
-              var tweet = streams.home[index];
-              var $tweet = $('<div></div>');
-              $tweet.text(index + ' @' + tweet.user + ': ' + tweet.message + ' at ' + tweet.created_at);
-              $tweet.appendTo($body);
+              displayTweet(index);
               index -= 1;
             }
           } else{
             while(index >= 0){
-              var tweet = streams.home[index];
-              var $tweet = $('<div></div>');
-              $tweet.text(index + ' @' + tweet.user + ': ' + tweet.message + ' at ' + tweet.created_at);
-              $tweet.appendTo($body);
+              displayTweet(index);
               index -= 1;
             }
           }
         })
-      })
+      });
       </script>
+    
     </section>
-
-    <section class="hero">
-      <script>
-        $(document).ready(function(){
-          var $body = $('.hero');
-          $body.html('');
-
-          var index = streams.home.length - 1;
-          while(index >= 0){
-            var tweet = streams.home[index];
-            var $tweet = $('<div></div>');
-            $tweet.text(index + ' @' + tweet.user + ': ' + tweet.message + ' at ' + tweet.created_at);
-            $tweet.appendTo($body);
-            index -= 1;
-          }
-        });
-      </script>
-    </section>
-
 
 
   </body>
