@@ -4,6 +4,7 @@
     <script src="jquery.js"></script>
     <script src="data_generator.js"></script>
     <title>Twittler</title>
+    <link rel="stylesheet" href="assets/stylesheets/main.css">
   </head>
   <body>
     <header class="primary-header">
@@ -18,33 +19,40 @@
     </section>
 
     <section class="hero">
+    </section>
 
-      <script>
-        $(document).ready(function(){
-        
-          var $hero = $('.hero');
-          var tweetCount = 0;
-          $hero.html('');
-        
-          displayTweet = function(index){
-            var tweet = streams.home[index];
-            var $tweet = $('<div></div>');
-            var time = tweet.created_at.toLocaleTimeString();
-            $tweet.text(index + ' @' + tweet.user + ': ' + tweet.message + ' at ' + time);
-            $tweet.appendTo($hero);
-          }
+    <footer class="primary-footer">
+      <section>
+        <p>Only 30 most recent tweets are displayed</p>
+      </section>
+    </footer>
 
-          var index = streams.home.length - 1;
-          while(index >= 0){
-            displayTweet(index);
-            index -=1;
-            }
+
+    <script>
+      $(document).ready(function(){
         
+        var $hero = $('.hero');
+        var tweetCount = 0;
+        $hero.html('');
+        
+        displayTweet = function(index){
+          var tweet = streams.home[index];
+          var $tweet = $('<div></div>');
+          var time = tweet.created_at.toLocaleTimeString();
+          $tweet.text(index + ' @' + tweet.user + ': ' + tweet.message + ' at ' + time);
+          $tweet.appendTo($hero);
+        }
+
+        var index = streams.home.length - 1;
+        while(index >= 0){
+          displayTweet(index);
+          index -=1;
+        }
 
         $('.next_tweet').on('click', function(){
           var index = streams.home.length - 1;
           $('.hero').empty();
-          if (index > 31){
+          if (index > 29){
             while(index >= streams.home.length - 30){
               displayTweet(index);
               index -= 1;
@@ -57,9 +65,7 @@
           }
         })
       });
-      </script>
-    
-    </section>
+    </script>
 
 
   </body>
