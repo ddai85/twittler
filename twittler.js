@@ -10,7 +10,7 @@ $(document).ready(function(){
     var time = tweet.created_at.toLocaleTimeString();
     
 
-    $tweet_head.html('<a class="user" href="#!" data-user="ben">@' + tweet.user + '</a>');
+    $tweet_head.html('<a class="user btn btn-default" href="#!" data-user="ben">@' + tweet.user + '</a>');
     $tweet_head.appendTo($hero);
     $('.user').last().attr("data-user", tweet.user);
     $tweet_body.html(tweet.message + ' at ' + time);
