@@ -62,13 +62,13 @@ html {
 */
 
 .logo {
-  border-top: 4px solid #648880;
+  border-top: 4px solid #0084b4;
   padding: 40px 0 0 0;; 
 }
 
 .tagline{
   padding: 0 0 40px 0;
-  border-bottom:4px solid #648880;
+  border-bottom:4px solid #0084b4;
 }
 
 h1 {
@@ -107,8 +107,8 @@ h3{
 .grid,
 .col-1-3,
 .col-2-3 {
-  padding-left: 15px;
-  padding-right: 15px;
+  padding: 15px 15px 15px 15px;
+
 }
 .col-1-3,
 .col-2-3  {
@@ -120,6 +120,8 @@ h3{
 }
 .col-2-3 {
   width: 66.66%;
+  background-color: #fff;
+  border-radius: 3px;
 }
 
 /*
@@ -131,26 +133,69 @@ h3{
 
 .row {
   padding: 66px 0 44px 0;
+  background-color: #0084b4;
 }
 
 /*
   ========================================
-  Header
+  Tweet head
   ========================================
 */
+.tweet_head {
+  
+
+}
+
 
 /*
   ========================================
-  Header
+  Tweet body
   ========================================
 */
-
+.tweet_body {
+  border-radius: 4px;
+  display: inline-block;
+  margin: 10px 10px 40px 10px;
+  border: 2px solid #0084b4;
+  background: #fff;
+  padding: 10px 10px;
+  font-size: 14px;
+}
 /*
   ========================================
-  Header
+  Buttons
   ========================================
 */
+.btn {
+  border-radius: 4px;
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  font-weight: 400;
+  letter-spacing: .5px;
+  margin: 0;
+  text-transform: uppercase;
+  text-align: center;
+}
 
+.btn-alt {
+  border: 1px solid #fff;
+  padding: 10px 30px;
+}
+.btn-alt:hover {
+  background: #fff;
+  color: #0084b4;
+}
+
+.btn-default {
+  border: 0;
+  background: #0084b4;
+  padding: 10px 10px;
+  font-size: 12px;
+}
+.btn-default:hover {
+  background: #0084b4;
+}
 /*
   ========================================
   Header
