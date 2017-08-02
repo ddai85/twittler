@@ -84,6 +84,29 @@ h3{
   text-align: center;
 
 }
+/*
+  ========================================
+  Container
+  ========================================
+*/
+.container{
+  padding: 10px 10px;
+  position: relative;
+  text-align: center;
+}
+
+
+/*
+  ========================================
+  Rows
+  ========================================
+*/
+
+
+.row {
+  padding: 5px 0 44px 0;
+  background-color: #0084b4;
+}
 
 /*
   ========================================
@@ -117,6 +140,9 @@ h3{
 }
 .col-1-3 {
   width: 33.33%;
+  position: relative;
+  text-align: center;
+
 }
 .col-2-3 {
   width: 66.66%;
@@ -124,17 +150,7 @@ h3{
   border-radius: 3px;
 }
 
-/*
-  ========================================
-  Rows
-  ========================================
-*/
 
-
-.row {
-  padding: 66px 0 44px 0;
-  background-color: #0084b4;
-}
 
 /*
   ========================================
@@ -181,11 +197,10 @@ h3{
 .btn-alt {
   border: 1px solid #fff;
   padding: 10px 30px;
-}
-.btn-alt:hover {
   background: #fff;
   color: #0084b4;
 }
+
 
 .btn-default {
   border: 0;
@@ -196,11 +211,20 @@ h3{
 .btn-default:hover {
   background: #0084b4;
 }
-/*
-  ========================================
-  Header
-  ========================================
-*/
+
+.btn-refresh{
+  border: 2px solid;
+  background: #fff;
+  padding: 20px 20px;
+  font-size: 22px;
+  color: #0084b4;
+}
+.btn-refresh:hover {
+  background: #0084b4;
+  color: #fff;
+
+}
+
 
 /*
   ========================================
@@ -209,4 +233,6 @@ h3{
 */
 footer {
   text-align:center;
+  padding-top: 20px;
+  padding-bottom: 20px;
 }
