@@ -195,10 +195,16 @@ h3{
 }
 
 .btn-alt {
-  border: 1px solid #fff;
-  padding: 10px 30px;
+  border: 1px solid;
   background: #fff;
+  padding: 10px 10px;
+  font-size: 18px;
   color: #0084b4;
+  margin-bottom: 20px;
+}
+.btn-alt:hover{
+  background: #0084b4;
+  color: #fff;
 }
 
 
@@ -218,6 +224,7 @@ h3{
   padding: 20px 20px;
   font-size: 22px;
   color: #0084b4;
+  margin-bottom: 20px;
 }
 .btn-refresh:hover {
   background: #0084b4;
@@ -225,6 +232,51 @@ h3{
 
 }
 
+/*
+  ========================================
+  Form
+  ========================================
+*/
+
+.why-attend {
+  list-style: square;
+  margin: 0 0 22px 30px;
+}
+form {
+  margin-bottom: 22px;
+}
+input,
+select,
+textarea {
+  font: 300 16px/22px "Lato", "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.register-group label {
+  color: #FFF;
+  cursor: pointer;
+  font-weight: 400;
+}
+.register-group input,
+.register-group select,
+.register-group textarea {
+  border: 1px solid #c6c9cc;
+  border-radius: 5px;
+  color: #888;
+  display: block;
+  margin: 5px 0 27px 0;
+  padding: 5px 8px;
+}
+.register-group input,
+.register-group textarea {
+  width: 100%;
+}
+.register-group select {
+  height: 34px;
+  width: 60px;
+}
+.register-group textarea {
+  height: 78px;
+}
 
 /*
   ========================================
@@ -236,3 +288,4 @@ footer {
   padding-top: 20px;
   padding-bottom: 20px;
 }
+
