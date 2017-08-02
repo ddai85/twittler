@@ -1,6 +1,8 @@
 $(document).ready(function(){
   var $hero = $('.hero');
+  var currentView = streams['home'];
   $hero.html('');
+
 
 //function called to compose a tweet on the page        
   displayTweet = function(index, tweetHome){
@@ -25,42 +27,42 @@ $(document).ready(function(){
   }
 
 // Write function that updates the stream maximum 30 tweets at a time
-  updateStream = function(){
-    var index = streams.home.length - 1;
+  updateStream = function(tweetHome){
+    var index = tweetHome.length - 1;
     $('.hero').empty();
     if (index > 29){
-      while(index >= streams.home.length - 30){
-        displayTweet(index, streams['home']);
+      while(index >= tweetHome.length - 30){
+        displayTweet(index, tweetHome);
         index -= 1;
       }
     } else{
       while(index >= 0){
-        displayTweet(index, streams['home']);
+        displayTweet(index, tweetHome);
         index -= 1;
       }
     }
   }
 
-//function called when tweets are filtered by user    
-  filterUser = function(user){
-    var index = streams['users'][user].length - 1;
-    if (index > 29){
-      while(index >= streams['users'][user].length - 30){
-        displayTweet(index, streams['users'][user]);
-        index -= 1;
-      }
-    } else{
-      while(index >= 0){
-        displayTweet(index, streams['users'][user]);
-        index -= 1;
-      }
-    }
-  }
 
 //listen for clicks on user name links
   $('body').on('click', 'a.user', function(){
     $('.hero').empty();
-    filterUser($(this).data("user"));
+    updateStream(streams['users'][$(this).data('user')]);
+    currentView = streams['users'][$(this).data('user')];
+    $('.showAll').show();
+  })
+
+//hide show all tweets button until a single user stream is clicked
+  $('.showAll').hide();
+  $('.showAll').on('click', function(){
+    updateStream(streams['home']);
+    currentView = streams['home'];
+    $('.showAll').hide();
+  })
+
+//refresh button checks which current view is and refreshes that view
+  $('body').on('click', 'a.btn-refresh', function(){
+    updateStream(currentView);
   })
 
 });
