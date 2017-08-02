@@ -1,8 +1,13 @@
+
+var visitor = 'visitor';
+
 $(document).ready(function(){
   var $hero = $('.hero');
   var currentView = streams['home'];
   $hero.html('');
-
+  var date = new Date;
+  $('.date').text(date.toLocaleDateString());
+  
 
 //function called to compose a tweet on the page        
   displayTweet = function(index, tweetHome){
@@ -61,8 +66,15 @@ $(document).ready(function(){
   })
 
 //refresh button checks which current view is and refreshes that view
-  $('body').on('click', 'a.btn-refresh', function(){
+  $('body').on('click', 'a.refresh', function(){
     updateStream(currentView);
+  })
+
+//add tweet when user submits new tweet
+  $('.submit').on('click', function(){
+    var message = $('.comments').val();
+    writeTweet(message);
+    updateStream(streams['home']);
   })
 
 });
