@@ -16,8 +16,10 @@
     </header>
 
     <section class="container">
-      <a class="btn btn-refresh" href = "#!">Refresh Stream</a>
-      <span class="date"></span>
+      <a class="btn btn-refresh refresh" href = "#!">Refresh Stream</a>
+      <a class="btn btn-refresh showAll" href = "#!">See all tweets</a>
+      <br>
+      <div class="date"></div>
     </section>
 
     <section class="row">
@@ -26,17 +28,18 @@
           
         </section><!--
 
-     --><section class="col-1-3 tools">
-          <a class="btn btn-alt showAll" href = "#!">See all tweets</a>
-        </section>
+     --><form class="col-1-3" onsubmit="return false">
+          <fieldset class="register-group">
+            <label>
+              Tweet to your followers!
+              <textarea class="comments" name="comments"></textarea>
+            </label>
+          </fieldset>
+          <input class="btn btn-alt submit" type="reset" name="submit" value="Tweet!">
+        </form>
       </div>
     </section>
-   
-
-
-
-
-
+  
     <footer class="primary-footer">
       <section>
         <p>Only 30 most recent tweets are displayed</p>
